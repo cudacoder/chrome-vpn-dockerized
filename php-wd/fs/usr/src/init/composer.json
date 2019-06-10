@@ -1,0 +1,7 @@
+{
+    "name": "docker/php-webdriver",
+    "require": {
+        "facebook/webdriver": "^1.6",
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}

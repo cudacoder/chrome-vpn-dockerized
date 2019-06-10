@@ -1,0 +1,31 @@
+version: "3"
+services:
+
+  vnc:
+    image: psharkey/novnc
+    ports:
+      - "8080:8080"
+
+  luminati:
+    build:
+      context: luminati
+    ports:
+      - "22999:22999"
+
+  chrome:
+      image: selenium/standalone-chrome-debug:3.13.0-argon
+      ports:
+        - "5900:5900"
+      volumes:
+        - /dev/shm:/dev/shm
+      depends_on:
+        - luminati
+
+  php-wd:
+      build:
+        context: php-wd
+      depends_on:
+        - chrome
+      environment:
+        - FB_USERNAME=<facebook-email>
+        - FB_PASSWORD=<facebook-password>

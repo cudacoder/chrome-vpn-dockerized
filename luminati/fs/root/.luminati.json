@@ -1,0 +1,8 @@
+{
+  "_defaults": {
+    "www_whitelist_ips": [
+      "172.0.0.0/8"
+    ]
+  },
+  "proxies": []
+}
